@@ -1,7 +1,8 @@
-FROM        node
-RUN         mkdir /app
-WORKDIR     /app
-COPY        . .
-RUN         npm install
-RUN         npm install cors --save
-CMD         ["npm", "start"]
+FROM node:8.16.1-alpine
+
+EXPOSE 8080
+EXPOSE 5858
+WORKDIR /app
+ADD . /app
+RUN npm install 
+CMD ["npm","start"]
